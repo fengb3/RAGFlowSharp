@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+        <Nullable>enable</Nullable>
+
+        <Version>0.0.1</Version>
+        <Authors>fengb3</Authors>
+
+        <Description>C# SDK for RAGFlow</Description>
+        <IsPackable>true</IsPackable>
+        <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="WebApiClientCore.Extensions.OAuths" Version="2.1.5"/>
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Dtos\ChatAssistant\" />
+      <Folder Include="Dtos\Chunk\" />
+      <Folder Include="Dtos\Session\" />
+    </ItemGroup>
+
+</Project>

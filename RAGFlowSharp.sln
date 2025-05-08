@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAGFlowSharp", "RAGFlowSharp\RAGFlowSharp.csproj", "{E3958225-EFF8-4D7F-B3AF-831DA2650781}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAGFlowSharp.Test", "RAGFlowSharp.Test\RAGFlowSharp.Test.csproj", "{E2051BB3-25E6-40B3-8482-33449AF97083}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAGFlowSharp.Demo.AspNet", "RAGFlowSharp.Demo.AspNet\RAGFlowSharp.Demo.AspNet.csproj", "{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E3958225-EFF8-4D7F-B3AF-831DA2650781}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E3958225-EFF8-4D7F-B3AF-831DA2650781}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E3958225-EFF8-4D7F-B3AF-831DA2650781}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E3958225-EFF8-4D7F-B3AF-831DA2650781}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E2051BB3-25E6-40B3-8482-33449AF97083}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E2051BB3-25E6-40B3-8482-33449AF97083}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E2051BB3-25E6-40B3-8482-33449AF97083}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E2051BB3-25E6-40B3-8482-33449AF97083}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
