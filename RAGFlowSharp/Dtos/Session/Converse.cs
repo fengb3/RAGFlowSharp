@@ -6,6 +6,9 @@ namespace RAGFlowSharp.Dtos.Session
     /// </summary>
     public class Converse
     {
+        /// <summary>
+        /// Represents the request body for sending a message to a chat assistant.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -14,6 +17,9 @@ namespace RAGFlowSharp.Dtos.Session
             public string Message { get; set; } = string.Empty;
         }
 
+        /// <summary>
+        /// Represents the response body containing the assistant's reply message.
+        /// </summary>
         public class ResponseBody : BaseResponse<Message>
         {
         }

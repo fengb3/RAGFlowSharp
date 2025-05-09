@@ -9,6 +9,9 @@ using WebApiClientCore.Extensions.OAuths;
 
 namespace RAGFlowSharp
 {
+    /// <summary>
+    /// Configuration options for the RAGFlow Sharp client.
+    /// </summary>
     public class RAGFlowSharpOptions
     {
         /// <summary>
@@ -30,14 +33,28 @@ namespace RAGFlowSharp
 
 namespace Microsoft.Extensions.DependencyInjection
 {
+    /// <summary>
+    /// Extension methods for configuring RAGFlow Sharp services.
+    /// </summary>
     public static class RAGFlowSharpServiceCollectionExtensions
     {
+        /// <summary>
+        /// Adds and configures RAGFlow Sharp services to the specified <see cref="IServiceCollection"/>.
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to add services to.</param>
+        /// <param name="setupAction">An action to configure the <see cref="RAGFlowSharpOptions"/>.</param>
+        /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
         public static IServiceCollection AddRagflowSharp(this IServiceCollection services,
             Action<RAGFlowSharpOptions> setupAction)
         {
             return services.Configure(setupAction).ConfigureRagflowSharp();
         }
 
+        /// <summary>
+        /// Configures RAGFlow Sharp services with the current options.
+        /// </summary>
+        /// <param name="services">The <see cref="IServiceCollection"/> to configure services in.</param>
+        /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
         public static IServiceCollection ConfigureRagflowSharp(this IServiceCollection services)
         {
             services.AddHttpApi<IRagflowApi>((options, sp) =>

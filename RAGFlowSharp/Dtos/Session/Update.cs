@@ -6,6 +6,9 @@ namespace RAGFlowSharp.Dtos.Session
     /// </summary>
     public class Update
     {
+        /// <summary>
+        /// Represents the request body for updating a chat session.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -14,6 +17,9 @@ namespace RAGFlowSharp.Dtos.Session
             public string? Name { get; set; }
         }
 
+        /// <summary>
+        /// Represents the response body for the update chat session operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

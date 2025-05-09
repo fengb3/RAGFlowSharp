@@ -6,12 +6,20 @@ using WebApiClientCore;
 namespace RAGFlowSharp.Test.Api;
 
 [TestSubject(typeof(IDatasetApi))]
-public class DatasetApiTest(IRagflowApi ragflowApi, ILogger<DatasetApiTest> logger)
+public class DatasetApiTest(IRagflowApi ragflowApi) : IDisposable
 {
-    [Fact]
-    public void TestRagflowApi()
+    private readonly List<string> _shouldDeleteDatasetIds = [];
+    
+    public void Dispose()
     {
-        Assert.NotNull(ragflowApi);
+        if (_shouldDeleteDatasetIds.Count <= 0) return;
+        
+        var deleteRequest = new RAGFlowSharp.Dtos.Dataset.Delete.RequestBody
+        {
+            Ids = _shouldDeleteDatasetIds
+        };
+        
+        ragflowApi.DeleteDataset(deleteRequest).Wait();
     }
 
     [Fact]
@@ -40,6 +48,8 @@ public class DatasetApiTest(IRagflowApi ragflowApi, ILogger<DatasetApiTest> logg
         Assert.Equal(0, result.Code);
         Assert.NotNull(result.Data);
         Assert.Equal(request.Name, result.Data.Name);
+        
+        _shouldDeleteDatasetIds.Add(result.Data.Id);
     }
 
     [Fact]
@@ -65,6 +75,17 @@ public class DatasetApiTest(IRagflowApi ragflowApi, ILogger<DatasetApiTest> logg
         var updateResult = await ragflowApi.UpdateDataset(datasetId, updateRequest);
         Assert.NotNull(updateResult);
         Assert.Equal(0, updateResult.Code);
+        
+        // Verify the update
+        var getResult = await ragflowApi.ListDatasets(id: datasetId);
+        Assert.NotNull(getResult);
+        Assert.NotNull(getResult.Data);
+        Assert.Single(getResult.Data);
+        Assert.Equal("Updated description", getResult.Data[0].Description);
+        Assert.Equal(datasetId, getResult.Data[0].Id);
+        Assert.Equal(createRequest.Name, getResult.Data[0].Name);
+        
+        _shouldDeleteDatasetIds.Add(datasetId);
     }
 
     [Fact]
@@ -75,7 +96,7 @@ public class DatasetApiTest(IRagflowApi ragflowApi, ILogger<DatasetApiTest> logg
         {
             Name = $"delete_dataset_{System.Guid.NewGuid().ToString("N").Substring(0, 8)}",
             Description = "To be deleted",
-            EmbeddingModel = "BAAI/bge-zh-v1.5",
+            EmbeddingModel = "BAAI/bge-large-zh-v1.5",
             ChunkMethod = "naive"
         };
         var createResult = await ragflowApi.CreateDataset(createRequest);

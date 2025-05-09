@@ -9,6 +9,9 @@ namespace RAGFlowSharp.Dtos.Session
     /// </summary>
     public class DeleteMessages
     {
+        /// <summary>
+        /// Represents the request body for deleting chat messages.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -17,6 +20,9 @@ namespace RAGFlowSharp.Dtos.Session
             public ICollection<string> Ids { get; set; } = Array.Empty<string>();
         }
 
+        /// <summary>
+        /// Represents the response body for the delete chat messages operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

@@ -8,6 +8,9 @@ namespace RAGFlowSharp.Dtos.Agent
     /// </summary>
     public class Execute
     {
+        /// <summary>
+        /// Represents the request body for executing an agent.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -16,6 +19,9 @@ namespace RAGFlowSharp.Dtos.Agent
             public IDictionary<string, object> Parameters { get; set; } = new Dictionary<string, object>();
         }
 
+        /// <summary>
+        /// Represents the response body for the agent execution operation.
+        /// </summary>
         public class ResponseBody : BaseResponse<IDictionary<string, object>>
         {
         }

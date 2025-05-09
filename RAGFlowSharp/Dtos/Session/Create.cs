@@ -6,6 +6,9 @@ namespace RAGFlowSharp.Dtos.Session
     /// </summary>
     public class Create
     {
+        /// <summary>
+        /// Represents the request body for creating a chat session.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -14,6 +17,9 @@ namespace RAGFlowSharp.Dtos.Session
             public string Name { get; set; } = string.Empty;
         }
 
+        /// <summary>
+        /// Represents the response body for the create chat session operation.
+        /// </summary>
         public class ResponseBody : BaseResponse<Data>
         {
         }

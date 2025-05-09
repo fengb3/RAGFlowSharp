@@ -1,7 +1,14 @@
 ﻿namespace RAGFlowSharp.Dtos.Dataset
 {
+    /// <summary>
+    /// DTOs for updating datasets
+    /// <see href="https://github.com/infiniflow/ragflow/blob/main/docs/references/http_api_reference.md#update-dataset">API Reference</see>
+    /// </summary>
     public class Update
     {
+        /// <summary>
+        /// Represents the request body for updating a dataset.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -47,6 +54,9 @@
             public string? Avatar { get; set; }
         }
 
+        /// <summary>
+        /// Represents the response body for the update dataset operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

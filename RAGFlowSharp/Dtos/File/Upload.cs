@@ -6,6 +6,9 @@ namespace RAGFlowSharp.Dtos.File
     /// </summary>
     public class Upload
     {
+        /// <summary>
+        /// Represents the request body for uploading a file.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -24,6 +27,9 @@ namespace RAGFlowSharp.Dtos.File
             public string Content { get; set; } = string.Empty;
         }
 
+        /// <summary>
+        /// Represents the response body for the file upload operation.
+        /// </summary>
         public class ResponseBody : BaseResponse<Data>
         {
         }

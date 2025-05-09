@@ -9,6 +9,9 @@ namespace RAGFlowSharp.Dtos.ChatAssistant
     /// </summary>
     public class Delete
     {
+        /// <summary>
+        /// Represents the request body for deleting chat assistants.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -17,6 +20,9 @@ namespace RAGFlowSharp.Dtos.ChatAssistant
             public ICollection<string> Ids { get; set; } = Array.Empty<string>();
         }
 
+        /// <summary>
+        /// Represents the response body for the delete chat assistants operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

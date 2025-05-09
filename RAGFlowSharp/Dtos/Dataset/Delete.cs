@@ -9,6 +9,9 @@ namespace RAGFlowSharp.Dtos.Dataset
     /// </summary>
     public class Delete
     {
+        /// <summary>
+        /// Represents the request body for deleting datasets.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -17,6 +20,9 @@ namespace RAGFlowSharp.Dtos.Dataset
             public ICollection<string> Ids { get; set; } = Array.Empty<string>();
         }
 
+        /// <summary>
+        /// Represents the response body for the delete datasets operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

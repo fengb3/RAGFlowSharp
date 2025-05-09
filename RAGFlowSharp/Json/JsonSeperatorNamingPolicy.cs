@@ -182,9 +182,19 @@ namespace System.Text.Json
         }
     }
 
+    /// <summary>
+    /// Constants used in JSON processing.
+    /// </summary>
     public static class JsonConstants
     {
+        /// <summary>
+        /// The threshold in bytes for stack allocation.
+        /// </summary>
         public const int StackallocByteThreshold = 256;
+
+        /// <summary>
+        /// The threshold in characters for stack allocation (half of the byte threshold).
+        /// </summary>
         public const int StackallocCharThreshold = StackallocByteThreshold / 2;
     }
 }

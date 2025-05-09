@@ -6,6 +6,9 @@ namespace RAGFlowSharp.Dtos.ChatAssistant
     /// </summary>
     public class Update
     {
+        /// <summary>
+        /// Represents the request body for updating a chat assistant.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -79,6 +82,9 @@ namespace RAGFlowSharp.Dtos.ChatAssistant
             public double? SimilarityThreshold { get; set; }
         }
 
+        /// <summary>
+        /// Represents the response body for the update chat assistant operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

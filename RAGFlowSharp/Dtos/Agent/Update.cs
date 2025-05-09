@@ -6,6 +6,9 @@ namespace RAGFlowSharp.Dtos.Agent
     /// </summary>
     public class Update
     {
+        /// <summary>
+        /// Represents the request body for updating an agent.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -74,6 +77,9 @@ namespace RAGFlowSharp.Dtos.Agent
             public double? SimilarityThreshold { get; set; }
         }
 
+        /// <summary>
+        /// Represents the response body for the update agent operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

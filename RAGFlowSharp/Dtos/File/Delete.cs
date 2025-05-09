@@ -9,6 +9,9 @@ namespace RAGFlowSharp.Dtos.File
     /// </summary>
     public class Delete
     {
+        /// <summary>
+        /// Represents the request body for deleting files.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -17,6 +20,9 @@ namespace RAGFlowSharp.Dtos.File
             public ICollection<string> Ids { get; set; } = Array.Empty<string>();
         }
 
+        /// <summary>
+        /// Represents the response body for the delete files operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

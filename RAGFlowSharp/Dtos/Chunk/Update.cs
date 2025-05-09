@@ -6,6 +6,9 @@ namespace RAGFlowSharp.Dtos.Chunk
     /// </summary>
     public class Update
     {
+        /// <summary>
+        /// Represents the request body for updating a chunk.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -24,6 +27,9 @@ namespace RAGFlowSharp.Dtos.Chunk
             public int? Position { get; set; }
         }
 
+        /// <summary>
+        /// Represents the response body for the update chunk operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }

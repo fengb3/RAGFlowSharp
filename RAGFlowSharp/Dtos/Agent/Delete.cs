@@ -9,6 +9,9 @@ namespace RAGFlowSharp.Dtos.Agent
     /// </summary>
     public class Delete
     {
+        /// <summary>
+        /// Represents the request body for deleting agents.
+        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -17,6 +20,9 @@ namespace RAGFlowSharp.Dtos.Agent
             public ICollection<string> Ids { get; set; } = Array.Empty<string>();
         }
 
+        /// <summary>
+        /// Represents the response body for the delete agents operation.
+        /// </summary>
         public class ResponseBody : BaseResponse
         {
         }
