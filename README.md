@@ -1,5 +1,7 @@
 # RAGFlowSharp
 
+[![NuGet Version](https://img.shields.io/nuget/v/RAGFlowSharp.svg?style=flat-square)](https://www.nuget.org/packages/RAGFlowSharp)
+
 RAGFlowSharp is a .NET-based RAG (Retrieval-Augmented Generation) workflow management library that provides a comprehensive set of APIs to manage various components in RAG applications.
 
 ## Key Features
@@ -21,14 +23,14 @@ dotnet add package RAGFlowSharp
 
 ### Configuration
 
+#### with Dependency injection
+
 ```csharp
 // Configure services in Program.cs or Startup.cs
 services.AddRAGFlowSharp(options =>
 {
-    // Configuration options
-    options.StoragePath = "path/to/storage";
-    options.ModelProvider = "OpenAI"; // or other supported model providers
-    options.ApiKey = "your-api-key";
+    options.ApiKey = "<your-api-key>";
+    options.BaseUrl = "http://your.ragflow.base.url";
 });
 ```
 
