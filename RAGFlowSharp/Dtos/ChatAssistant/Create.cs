@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using RAGFlowSharp.Dtos.ChatAssistant;
+
 namespace RAGFlowSharp.Dtos.ChatAssistant
 {
     /// <summary>
@@ -17,69 +20,24 @@ namespace RAGFlowSharp.Dtos.ChatAssistant
             public string Name { get; set; } = string.Empty;
 
             /// <summary>
-            /// A brief description of the assistant
-            /// </summary>
-            public string? Description { get; set; }
-
-            /// <summary>
             /// Base64 encoded avatar
             /// </summary>
             public string? Avatar { get; set; }
 
             /// <summary>
-            /// The ID of the dataset to associate with this assistant
+            /// The IDs of the datasets to associate with this assistant
             /// </summary>
-            public string DatasetId { get; set; } = string.Empty;
+            public List<string>? DatasetIds { get; set; }
 
             /// <summary>
-            /// The ID of the LLM model to use
+            /// The LLM model to use
             /// </summary>
-            public string LlmId { get; set; } = string.Empty;
+            public LlmDto? Llm { get; set; }
 
             /// <summary>
             /// The system prompt for the assistant
             /// </summary>
-            public string SystemPrompt { get; set; } = string.Empty;
-
-            /// <summary>
-            /// The temperature setting for the assistant (0.0 to 1.0)
-            /// </summary>
-            public double Temperature { get; set; } = 0.7;
-
-            /// <summary>
-            /// The top-p setting for the assistant (0.0 to 1.0)
-            /// </summary>
-            public double TopP { get; set; } = 1.0;
-
-            /// <summary>
-            /// The maximum number of tokens in the response
-            /// </summary>
-            public int MaxTokens { get; set; } = 2048;
-
-            /// <summary>
-            /// The frequency penalty setting for the assistant (-2.0 to 2.0)
-            /// </summary>
-            public double FrequencyPenalty { get; set; } = 0.0;
-
-            /// <summary>
-            /// The presence penalty setting for the assistant (-2.0 to 2.0)
-            /// </summary>
-            public double PresencePenalty { get; set; } = 0.0;
-
-            /// <summary>
-            /// The number of messages to keep in the conversation history
-            /// </summary>
-            public int MessageHistoryWindowSize { get; set; } = 10;
-
-            /// <summary>
-            /// The vector similarity weight for the assistant (0.0 to 1.0)
-            /// </summary>
-            public double VectorSimilarityWeight { get; set; } = 0.5;
-
-            /// <summary>
-            /// The similarity threshold for the assistant (0.0 to 1.0)
-            /// </summary>
-            public double SimilarityThreshold { get; set; } = 0.7;
+            public PromptDto? Prompt { get; set; }
         }
 
         /// <summary>

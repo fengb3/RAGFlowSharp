@@ -66,7 +66,7 @@ public class FileApiTest : IDisposable
             await File.WriteAllTextAsync(uploadFile.FullName, fileContent, Encoding.UTF8);
         }
 
-        await Task.Delay(2000); // 等待数据集创建完成
+        // await Task.Delay(2000); // 等待数据集创建完成
 
         var uploadResult = await _ragflowApi.UploadFilesAsync(_testDatasetId, uploadFile);
         _logger.LogInformation("Upload file response: {Response}", JsonSerializer.Serialize(uploadResult));

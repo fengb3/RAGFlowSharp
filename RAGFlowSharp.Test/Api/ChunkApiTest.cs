@@ -131,7 +131,7 @@ public class ChunkApiTest : IDisposable
             ImportantKeywords = ["test", "update"],
             Available = true,
         };
-        var updateResult = await _ragflowApi.UpdateChunkAsync(_testDatasetId, _testDocumentId, chunkId, updateRequest);
+        var updateResult = await _ragflowApi.UpdateChunkAsync(_testDatasetId, _testDocumentId, chunkId, updateRequest); // this returns MethodNotAllowed ?? 
         _logger.LogInformation("Update chunk response: {Response}", JsonSerializer.Serialize(updateResult));
         Assert.NotNull(updateResult);
         Assert.Equal(0, updateResult.Code);

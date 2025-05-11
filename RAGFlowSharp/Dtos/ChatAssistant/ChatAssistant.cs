@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using RAGFlowSharp.Dtos.ChatAssistant;
+
 namespace RAGFlowSharp.Dtos.ChatAssistant
 {
     /// <summary>
@@ -28,81 +31,66 @@ namespace RAGFlowSharp.Dtos.ChatAssistant
         /// <summary>
         /// The ID of the dataset associated with this assistant
         /// </summary>
-        public string DatasetId { get; set; } = string.Empty;
+        public List<string>? DatasetIds { get; set; }
 
         /// <summary>
         /// The ID of the LLM model used by this assistant
         /// </summary>
-        public string LlmId { get; set; } = string.Empty;
+        public LlmDto? Llm { get; set; }
 
         /// <summary>
         /// The system prompt for the assistant
         /// </summary>
-        public string SystemPrompt { get; set; } = string.Empty;
+        public PromptDto? Prompt { get; set; }
 
         /// <summary>
-        /// The temperature setting for the assistant (0.0 to 1.0)
+        /// The language of the assistant
         /// </summary>
-        public double Temperature { get; set; }
-
-        /// <summary>
-        /// The top-p setting for the assistant (0.0 to 1.0)
-        /// </summary>
-        public double TopP { get; set; }
-
-        /// <summary>
-        /// The maximum number of tokens in the response
-        /// </summary>
-        public int MaxTokens { get; set; }
-
-        /// <summary>
-        /// The frequency penalty setting for the assistant (-2.0 to 2.0)
-        /// </summary>
-        public double FrequencyPenalty { get; set; }
-
-        /// <summary>
-        /// The presence penalty setting for the assistant (-2.0 to 2.0)
-        /// </summary>
-        public double PresencePenalty { get; set; }
-
-        /// <summary>
-        /// The number of messages to keep in the conversation history
-        /// </summary>
-        public int MessageHistoryWindowSize { get; set; }
-
-        /// <summary>
-        /// The vector similarity weight for the assistant (0.0 to 1.0)
-        /// </summary>
-        public double VectorSimilarityWeight { get; set; }
-
-        /// <summary>
-        /// The similarity threshold for the assistant (0.0 to 1.0)
-        /// </summary>
-        public double SimilarityThreshold { get; set; }
+        public string? Language { get; set; }
 
         /// <summary>
         /// The status of the assistant
         /// </summary>
-        public string Status { get; set; } = string.Empty;
+        public string? Status { get; set; }
+
+        /// <summary>
+        /// The type of the assistant
+        /// </summary>
+        public string? PromptType { get; set; }
+
+        /// <summary>
+        /// The tenant ID of the assistant
+        /// </summary>
+        public string? TenantId { get; set; }
 
         /// <summary>
         /// The creation date of the assistant in GMT format
         /// </summary>
-        public string CreateDate { get; set; } = string.Empty;
+        public string? CreateDate { get; set; }
 
         /// <summary>
         /// The creation timestamp of the assistant
         /// </summary>
-        public long CreateTime { get; set; }
+        public long? CreateTime { get; set; }
 
         /// <summary>
         /// The last update date of the assistant in GMT format
         /// </summary>
-        public string UpdateDate { get; set; } = string.Empty;
+        public string? UpdateDate { get; set; }
 
         /// <summary>
         /// The last update timestamp of the assistant
         /// </summary>
-        public long UpdateTime { get; set; }
+        public long? UpdateTime { get; set; }
+
+        /// <summary>
+        /// The top-k setting for the assistant
+        /// </summary>
+        public int? TopK { get; set; }
+
+        /// <summary>
+        /// The do-refer setting for the assistant
+        /// </summary>
+        public string? DoRefer { get; set; }
     }
 } 
