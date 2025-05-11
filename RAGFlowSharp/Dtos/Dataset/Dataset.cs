@@ -5,7 +5,7 @@ namespace RAGFlowSharp.Dtos.Dataset
     /// <summary>
     /// Represents detailed information about a dataset.
     /// </summary>
-    public class Data
+    public class Dataset
     {
         /// <summary>
         /// Gets or sets the unique identifier of the dataset.

@@ -9,16 +9,16 @@ namespace RAGFlowSharp.Dtos.File
         /// <summary>
         /// Response body containing an array of file data
         /// </summary>
-        public class ResponseBody : BaseResponse<ResponseBodyData>
+        public class ResponseBody : BaseResponse<Data>
         {
         }
 
-        public class ResponseBodyData
+        public class Data
         {
             /// <summary>
             /// 
             /// </summary>
-            public Data[] Docs { get; set; }
+            public Document[] Docs { get; set; }
             
             /// <summary>
             /// 

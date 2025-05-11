@@ -85,7 +85,7 @@ namespace RAGFlowSharp.Dtos.ChatAssistant
         /// <summary>
         /// Represents the response body for the create chat assistant operation.
         /// </summary>
-        public class ResponseBody : BaseResponse<Data>
+        public class ResponseBody : BaseResponse<ChatAssistant>
         {
         }
     }

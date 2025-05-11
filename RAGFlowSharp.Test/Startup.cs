@@ -10,6 +10,9 @@ class Startup
     {
         services.AddRagflowSharp(options =>
         {
+            // options.ApiKey = "ragflow-U3MTFkNGFjMmMyNjExZjA5NjUxMDI0Mm";
+            // options.BaseUrl = "http://localhost";
+            
             options.ApiKey = "ragflow-U3MTFkNGFjMmMyNjExZjA5NjUxMDI0Mm";
             options.BaseUrl = "http://localhost";
             options.EnableLogging = true;

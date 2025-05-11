@@ -10,48 +10,72 @@ namespace RAGFlowSharp.Api
     public interface IChunkApi
     {
         /// <summary>
-        /// List chunks in a dataset
+        /// Add a chunk to a specified document in a specified dataset
         /// </summary>
         /// <param name="datasetId">The ID of the dataset</param>
-        /// <param name="page">Page number (default: 1)</param>
-        /// <param name="pageSize">Number of items per page (default: 30)</param>
-        /// <param name="orderBy">Sort field (default: create_time)</param>
-        /// <param name="desc">Sort in descending order (default: true)</param>
-        /// <param name="name">Filter by chunk name</param>
-        /// <param name="id">Filter by chunk ID</param>
-        /// <returns>The list response containing chunk data</returns>
-        [HttpGet("/api/v1/datasets/{datasetId}/chunks")]
-        Task<List.ResponseBody> ListChunksAsync(
+        /// <param name="documentId">The ID of the document</param>
+        /// <param name="request">The add chunk request</param>
+        /// <returns>The response containing the created chunk</returns>
+        [HttpPost("/api/v1/datasets/{datasetId}/documents/{documentId}/chunks")]
+        Task<Add.ResponseBody> AddChunkAsync(
             [PathQuery] string datasetId,
-             int? page = null,
-             int? pageSize = null,
-             string? orderBy = null,
-             bool? desc = null,
-             string? name = null,
-             string? id = null);
+            [PathQuery] string documentId,
+            [JsonContent] Add.RequestBody request);
 
         /// <summary>
-        /// Update a chunk in a dataset
+        /// List chunks in a specified document
         /// </summary>
         /// <param name="datasetId">The ID of the dataset</param>
+        /// <param name="documentId">The ID of the document</param>
+        /// <param name="keywords">Keywords to match chunk content</param>
+        /// <param name="page">Page number (default: 1)</param>
+        /// <param name="pageSize">Number of items per page (default: 1024)</param>
+        /// <param name="id">Filter by chunk ID</param>
+        /// <returns>The list response containing chunk data</returns>
+        [HttpGet("/api/v1/datasets/{datasetId}/documents/{documentId}/chunks")]
+        Task<List.ResponseBody> ListChunksAsync(
+            [PathQuery] string datasetId,
+            [PathQuery] string documentId,
+            [PathQuery] string? keywords = null,
+            [PathQuery] int? page = null,
+            [PathQuery] int? pageSize = null,
+            [PathQuery] string? id = null);
+
+        /// <summary>
+        /// Delete chunks by ID from a specified document in a dataset
+        /// </summary>
+        /// <param name="datasetId">The ID of the dataset</param>
+        /// <param name="documentId">The ID of the document</param>
+        /// <param name="request">The delete request containing chunk IDs</param>
+        /// <returns>The delete response</returns>
+        [HttpDelete("/api/v1/datasets/{datasetId}/documents/{documentId}/chunks")]
+        Task<Delete.ResponseBody> DeleteChunksAsync(
+            [PathQuery] string datasetId,
+            [PathQuery] string documentId,
+            [JsonContent] Delete.RequestBody request);
+
+        /// <summary>
+        /// Update a chunk in a specified document in a dataset
+        /// </summary>
+        /// <param name="datasetId">The ID of the dataset</param>
+        /// <param name="documentId">The ID of the document</param>
         /// <param name="chunkId">The ID of the chunk to update</param>
         /// <param name="request">The update request containing chunk data</param>
         /// <returns>The update response</returns>
-        [HttpPut("/api/v1/datasets/{datasetId}/chunks/{chunkId}")]
+        [HttpPut("/api/v1/datasets/{datasetId}/documents/{documentId}/chunks/{chunkId}")]
         Task<Update.ResponseBody> UpdateChunkAsync(
             [PathQuery] string datasetId,
+            [PathQuery] string documentId,
             [PathQuery] string chunkId,
             [JsonContent] Update.RequestBody request);
 
         /// <summary>
-        /// Delete chunks from a dataset
+        /// Retrieve chunks from specified datasets or documents
         /// </summary>
-        /// <param name="datasetId">The ID of the dataset</param>
-        /// <param name="request">The delete request containing chunk IDs</param>
-        /// <returns>The delete response</returns>
-        [HttpDelete("/api/v1/datasets/{datasetId}/chunks")]
-        Task<Delete.ResponseBody> DeleteChunksAsync(
-            [PathQuery] string datasetId,
-            [JsonContent] Delete.RequestBody request);
+        /// <param name="request">The retrieval request</param>
+        /// <returns>The retrieval response</returns>
+        [HttpPost("/api/v1/retrieval")]
+        Task<Retrieval.ResponseBody> RetrieveChunksAsync(
+            [JsonContent] Retrieval.RequestBody request);
     }
 } 

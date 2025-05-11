@@ -38,7 +38,7 @@ public class FileApiTest : IDisposable
         // 首先创建一个测试数据集
         var createDatasetRequest = new RAGFlowSharp.Dtos.Dataset.Create.RequestBody
         {
-            Name           = $"test_dataset_{System.Guid.NewGuid().ToString("N").Substring(0, 8)}",
+            Name           = $"test_dataset_{System.Guid.NewGuid().ToString("N")[..8]}",
             Description    = "Test dataset for file upload",
             EmbeddingModel = "BAAI/bge-large-zh-v1.5",
             ChunkMethod    = "naive"

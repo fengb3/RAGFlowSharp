@@ -9,7 +9,7 @@ namespace RAGFlowSharp.Dtos.Session
         /// <summary>
         /// Response body containing an array of chat session data
         /// </summary>
-        public class ResponseBody : BaseResponse<Data[]>
+        public class ResponseBody : BaseResponse<Session[]>
         {
         }
     }

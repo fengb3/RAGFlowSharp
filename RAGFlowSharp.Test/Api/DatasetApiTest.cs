@@ -38,7 +38,7 @@ public class DatasetApiTest(IRagflowApi ragflowApi) : IDisposable
     {
         var request = new RAGFlowSharp.Dtos.Dataset.Create.RequestBody
         {
-            Name = $"test_dataset_{System.Guid.NewGuid().ToString("N").Substring(0, 8)}",
+            Name = $"test_dataset_{System.Guid.NewGuid().ToString("N")[..8]}",
             Description = "Test dataset",
             EmbeddingModel = "BAAI/bge-large-zh-v1.5",
             ChunkMethod = "naive"
@@ -58,7 +58,7 @@ public class DatasetApiTest(IRagflowApi ragflowApi) : IDisposable
         // First, create a dataset to update
         var createRequest = new RAGFlowSharp.Dtos.Dataset.Create.RequestBody
         {
-            Name = $"update_dataset_{System.Guid.NewGuid().ToString("N").Substring(0, 8)}",
+            Name = $"update_dataset_{System.Guid.NewGuid().ToString("N")[..8]}",
             Description = "To be updated",
             EmbeddingModel = "BAAI/bge-large-zh-v1.5",
             ChunkMethod = "naive"
@@ -94,7 +94,7 @@ public class DatasetApiTest(IRagflowApi ragflowApi) : IDisposable
         // First, create a dataset to delete
         var createRequest = new RAGFlowSharp.Dtos.Dataset.Create.RequestBody
         {
-            Name = $"delete_dataset_{System.Guid.NewGuid().ToString("N").Substring(0, 8)}",
+            Name = $"delete_dataset_{System.Guid.NewGuid().ToString("N")[..8]}",
             Description = "To be deleted",
             EmbeddingModel = "BAAI/bge-large-zh-v1.5",
             ChunkMethod = "naive"

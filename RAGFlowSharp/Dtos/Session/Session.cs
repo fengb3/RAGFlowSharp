@@ -3,7 +3,7 @@ namespace RAGFlowSharp.Dtos.Session
     /// <summary>
     /// Represents a chat session
     /// </summary>
-    public class Data
+    public class Session
     {
         /// <summary>
         /// The unique identifier of the session

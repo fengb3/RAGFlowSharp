@@ -30,7 +30,7 @@ namespace RAGFlowSharp.Dtos.File
         /// <summary>
         /// Represents the response body for the file upload operation.
         /// </summary>
-        public class ResponseBody : BaseResponse<Data[]>
+        public class ResponseBody : BaseResponse<Document[]>
         {
         }
     }

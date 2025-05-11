@@ -20,7 +20,7 @@ namespace RAGFlowSharp.Dtos.Session
         /// <summary>
         /// Represents the response body for the create chat session operation.
         /// </summary>
-        public class ResponseBody : BaseResponse<Data>
+        public class ResponseBody : BaseResponse<Session>
         {
         }
     }

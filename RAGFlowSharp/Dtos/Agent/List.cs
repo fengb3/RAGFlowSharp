@@ -9,7 +9,7 @@ namespace RAGFlowSharp.Dtos.Agent
         /// <summary>
         /// Response body containing an array of agent data
         /// </summary>
-        public class ResponseBody : BaseResponse<Data[]>
+        public class ResponseBody : BaseResponse<Agent[]>
         {
         }
     }

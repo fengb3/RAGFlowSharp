@@ -80,7 +80,7 @@ namespace RAGFlowSharp.Dtos.Agent
         /// <summary>
         /// 
         /// </summary>
-        public class ResponseBody : BaseResponse<Data>
+        public class ResponseBody : BaseResponse<Agent>
         {
         }
     }

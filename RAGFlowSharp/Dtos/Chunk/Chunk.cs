@@ -3,7 +3,7 @@ namespace RAGFlowSharp.Dtos.Chunk
     /// <summary>
     /// Represents a chunk in a dataset
     /// </summary>
-    public class Data
+    public class Chunk
     {
         /// <summary>
         /// The unique identifier of the chunk

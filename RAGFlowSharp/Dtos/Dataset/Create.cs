@@ -8,9 +8,6 @@ namespace RAGFlowSharp.Dtos.Dataset
     /// </summary>
     public class Create
     {
-        /// <summary>
-        /// Represents the request body for creating a dataset.
-        /// </summary>
         public class RequestBody
         {
             /// <summary>
@@ -155,10 +152,7 @@ namespace RAGFlowSharp.Dtos.Dataset
             public bool UseRaptor { get; set; } = false;
         }
 
-        /// <summary>
-        /// Represents the response body for the create dataset operation.
-        /// </summary>
-        public class ResponseBody : BaseResponse<Data>
+        public class ResponseBody : BaseResponse<Dataset>
         {
         }
     }

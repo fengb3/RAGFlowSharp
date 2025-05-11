@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace RAGFlowSharp.Dtos.Chunk
 {
     /// <summary>
@@ -12,19 +14,19 @@ namespace RAGFlowSharp.Dtos.Chunk
         public class RequestBody
         {
             /// <summary>
-            /// The name of the chunk
-            /// </summary>
-            public string? Name { get; set; }
-
-            /// <summary>
             /// The content of the chunk
             /// </summary>
             public string? Content { get; set; }
 
             /// <summary>
-            /// The position of the chunk in the document
+            /// A list of key terms or phrases to tag with the chunk.
             /// </summary>
-            public int? Position { get; set; }
+            public ICollection<string>? ImportantKeywords { get; set; }
+            
+            /// <summary>
+            /// The chunk's availability status in the dataset. Value options:
+            /// </summary>
+            public bool Available { get; set; } = true;
         }
 
         /// <summary>

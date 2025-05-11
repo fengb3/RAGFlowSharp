@@ -6,7 +6,7 @@ namespace RAGFlowSharp.Dtos.File
     /// <summary>
     /// Represents a file in a dataset
     /// </summary>
-    public class Data
+    public class Document
     {
         /// <summary>
         /// The unique identifier of the file

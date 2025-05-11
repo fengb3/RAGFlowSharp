@@ -17,7 +17,7 @@ namespace RAGFlowSharp.Dtos.Chunk
             /// <summary>
             /// The IDs of the chunks to delete. If not specified, all chunks in the dataset will be deleted.
             /// </summary>
-            public ICollection<string> Ids { get; set; } = Array.Empty<string>();
+            public ICollection<string> ChunkIds { get; set; } = Array.Empty<string>();
         }
 
         /// <summary>
