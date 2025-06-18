@@ -19,12 +19,13 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <None Include="..\README.md" Pack="true" PackagePath="\"/>
-        <None Include="..\LICENSE" Pack="true" PackagePath="\"/>
+        <None Include="..\README.md" Pack="true" PackagePath="\" />
+        <None Include="..\LICENSE" Pack="true" PackagePath="\" />
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="WebApiClientCore.Extensions.OAuths" Version="2.1.5"/>
+        <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.3.0" />
+        <PackageReference Include="WebApiClientCore.Extensions.OAuths" Version="2.1.5" />
     </ItemGroup>
 
     <ItemGroup>

@@ -2,7 +2,9 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
+using Microsoft.Extensions.Primitives;
 using RAGFlowSharp;
 using RAGFlowSharp.Api;
 using WebApiClientCore.Extensions.OAuths;
@@ -46,8 +48,9 @@ namespace Microsoft.Extensions.DependencyInjection
         /// <returns>The <see cref="IServiceCollection"/> so that additional calls can be chained.</returns>
         public static IServiceCollection AddRagflowSharp(this IServiceCollection services,
             Action<RAGFlowSharpOptions> setupAction)
-        {
+        { 
             return services.Configure(setupAction).ConfigureRagflowSharp();
+
         }
 
         /// <summary>
@@ -83,11 +86,25 @@ namespace Microsoft.Extensions.DependencyInjection
 
             services.AddTokenProvider<IRagflowApi>(sp =>
             {
+                // 你可以在这里注入其他服务，比如 IHttpContextAccessor
+                var httpContextAccessor = sp.GetRequiredService<IHttpContextAccessor>();    
+                httpContextAccessor.HttpContext.Request.Headers.TryGetValue("Authorization", out var authorizationHeader);
+                httpContextAccessor.HttpContext.Request.Headers.TryGetValue("api_key", out var apiKey);
+                var token = apiKey.ToString() ?? string.Empty;
+                if (!StringValues.IsNullOrEmpty(authorizationHeader) && authorizationHeader.ToString().StartsWith("Bearer "))
+                {
+                    token = authorizationHeader.ToString().Replace("Bearer ", "");
+                }
+
                 var ragflowOptions = sp.GetRequiredService<IOptions<RAGFlowSharpOptions>>().Value;
+                if(string.IsNullOrEmpty(token) && !string.IsNullOrEmpty(ragflowOptions.ApiKey))
+                {
+                    token = ragflowOptions.ApiKey;
+                }
                 return Task.FromResult(new TokenResult
                 {
-                    Access_token = ragflowOptions.ApiKey,
-                    Token_type = "Bearer",
+                    Access_token =  token,
+                    Token_type = "Bearer"
                 })!;
             });
 
@@ -95,10 +112,3 @@ namespace Microsoft.Extensions.DependencyInjection
         }
     }
 }
-
-// namespace RAGFlowSharp.Api
-// {
-//     public interface IRagflowApi : IDatasetApi
-//     {
-//     }
-// }
