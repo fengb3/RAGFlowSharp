@@ -2,14 +2,10 @@ using RAGFlowSharp.Api;
 using RAGFlowSharp.Dtos.Dataset;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddHttpContextAccessor();
-builder.Services.AddMcpServer()
-            .WithToolsFromAssembly()
-            .WithHttpTransport();
- 
+
 builder.Services.AddRagflowSharp(options =>
 {
-    options.ApiKey = builder.Configuration["RagFlow:ApiKey"]?? string.Empty;
+    options.ApiKey = builder.Configuration["RagFlow:ApiKey"] ?? string.Empty;
     options.BaseUrl = builder.Configuration["RagFlow:ApiUrl"] ?? "https://demo.ragflow.io/";
     options.EnableLogging = true;
 });
@@ -30,6 +26,32 @@ app.MapGet("/api/datasets", async (IRagflowApi api) =>
     }
 });
 
+// 创建数据集
+app.MapPost("/api/datasets", async (IRagflowApi api, Create.RequestBody request) =>
+{
+    try
+    {
+        var result = await api.CreateDataset(request);
+        return Results.Ok(result);
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem(ex.Message);
+    }
+});
 
-app.MapMcp();
+// 删除数据集
+app.MapDelete("/api/datasets", async (IRagflowApi api, Delete.RequestBody request) =>
+{
+    try
+    {
+        var result = await api.DeleteDataset(request);
+        return Results.Ok(result);
+    }
+    catch (Exception ex)
+    {
+        return Results.Problem(ex.Message);
+    }
+});
+
 app.Run();

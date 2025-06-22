@@ -12,10 +12,6 @@ namespace RAGFlowSharp.Demo.AspNet.Tools
         public static async Task<List.ResponseBody> ListDatasets(IRagflowApi ragflowApi)
         {
             var response = await ragflowApi.ListDatasets(); 
-            response.Data.ToList().ForEach(dataset => 
-            {
-                dataset.Description = dataset.Description ?? "No description available.";
-            });
             return response;
         } 
     }
