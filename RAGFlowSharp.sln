@@ -1,5 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36202.13 d17.14
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAGFlowSharp", "RAGFlowSharp\RAGFlowSharp.csproj", "{E3958225-EFF8-4D7F-B3AF-831DA2650781}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAGFlowSharp.Test", "RAGFlowSharp.Test\RAGFlowSharp.Test.csproj", "{E2051BB3-25E6-40B3-8482-33449AF97083}"
@@ -7,6 +10,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAGFlowSharp.Demo.AspNet", "RAGFlowSharp.Demo.AspNet\RAGFlowSharp.Demo.AspNet.csproj", "{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demo", "Demo", "{239E1C80-A067-43C9-BF5F-6260DC29016F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "MCP", "MCP", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAGFlowSharp.MCPServer", "RAGFlowSharp.MCP\RAGFlowSharp.MCPServer.csproj", "{95F911BC-4083-02EC-5005-0868642B9601}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -26,8 +33,16 @@ Global
 		{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95F911BC-4083-02EC-5005-0868642B9601}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95F911BC-4083-02EC-5005-0868642B9601}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95F911BC-4083-02EC-5005-0868642B9601}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95F911BC-4083-02EC-5005-0868642B9601}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{37116D34-0884-4F9D-9C42-6DCD4F1EC5BF} = {239E1C80-A067-43C9-BF5F-6260DC29016F}
+		{95F911BC-4083-02EC-5005-0868642B9601} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 	EndGlobalSection
 EndGlobal
