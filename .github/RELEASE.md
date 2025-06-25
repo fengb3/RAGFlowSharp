@@ -4,11 +4,13 @@
 
 ## 配置要求
 
-### 1. 设置 NuGet API Key
+### 1. 设置必需的 Secrets
 
 在 GitHub 仓库的 Settings → Secrets and variables → Actions 中添加以下秘钥：
 
 - `NUGET_API_KEY`: 您的 NuGet.org API 密钥
+- `RAGFLOW_API_KEY`: 您的 RAGFlow API 密钥（用于运行测试）
+- `RAGFLOW_BASE_URL`: RAGFlow 服务的基础 URL（例如：http://localhost:8000）
 
 ### 2. 获取 NuGet API Key
 
@@ -50,9 +52,43 @@
 - `.github/workflows/release.yml`: 在创建 Release 时触发，自动发布 NuGet 包
 - `.github/workflows/build-and-test.yml`: 在推送到 main 分支或创建 PR 时触发，进行构建和测试
 
+## 测试配置
+
+### 本地开发
+
+如果您想在本地运行测试，需要设置以下环境变量：
+
+```bash
+# Windows (PowerShell)
+$env:RAGFLOW_API_KEY="your-ragflow-api-key"
+$env:RAGFLOW_BASE_URL="http://localhost:8000"
+
+# Linux/macOS
+export RAGFLOW_API_KEY="your-ragflow-api-key"
+export RAGFLOW_BASE_URL="http://localhost:8000"
+```
+
+或者在 `RAGFlowSharp.Test/appsettings.json` 中直接配置：
+
+```json
+{
+  "RAGFlowSharp": {
+    "BaseUrl": "http://localhost:8000",
+    "ApiKey": "your-ragflow-api-key"
+  }
+}
+```
+
+**注意：** 为了安全起见，请不要将真实的 API 密钥提交到代码仓库中。
+
+### CI/CD 测试
+
+GitHub Actions 会自动从 Repository Secrets 中读取环境变量来运行测试。
+
 ## 注意事项
 
 - 确保标签版本号符合语义化版本规范
 - 发布前请确保所有测试通过
 - NuGet 包名会根据项目名称自动生成
-- 如果版本号已存在，发布会被跳过（使用 --skip-duplicate 参数） 
+- 如果版本号已存在，发布会被跳过（使用 --skip-duplicate 参数）
+- 测试需要有效的 RAGFlow API 密钥和服务 URL 

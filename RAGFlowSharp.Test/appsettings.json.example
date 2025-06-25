@@ -1,7 +1,7 @@
 {
   "RAGFlowSharp": {
     "BaseUrl": "http://localhost:8000",
-    "ApiKey": ""
+    "ApiKey": "<your-api-key>"
   },
   "Logging": {
     "LogLevel": {

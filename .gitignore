@@ -482,3 +482,6 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# test configuration file
+RAGFlowSharp.Test/appsettings.json

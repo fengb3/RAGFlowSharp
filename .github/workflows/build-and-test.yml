@@ -25,4 +25,7 @@ jobs:
       run: dotnet build --configuration Release --no-restore
       
     - name: Test
-      run: dotnet test --no-build --verbosity normal --configuration Release 
+      run: dotnet test --no-build --verbosity normal --configuration Release
+      env:
+        RAGFLOW_API_KEY: ${{ secrets.RAGFLOW_API_KEY }}
+        RAGFLOW_BASE_URL: ${{ secrets.RAGFLOW_BASE_URL }} 
