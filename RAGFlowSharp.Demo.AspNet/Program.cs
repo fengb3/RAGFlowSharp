@@ -5,8 +5,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddRagflowSharp(options =>
 {
-    options.ApiKey = "ragflow-A4YTJjODc4MmMwMDExZjA5YTQ1NDIwMT";
-    options.BaseUrl = "https://demo.ragflow.io";
+    options.ApiKey = builder.Configuration["RagFlow:ApiKey"] ?? string.Empty;
+    options.BaseUrl = builder.Configuration["RagFlow:ApiUrl"] ?? "https://demo.ragflow.io/";
     options.EnableLogging = true;
 });
 
