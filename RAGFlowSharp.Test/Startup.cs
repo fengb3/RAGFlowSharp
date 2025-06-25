@@ -17,9 +17,6 @@ class Startup
             .Build();
 
         services.AddSingleton<IConfiguration>(configuration);
-        
-        // 添加测试用的 HttpContextAccessor
-        services.AddSingleton<IHttpContextAccessor, TestHttpContextAccessor>();
 
         services.AddRagflowSharp(options =>
         {
