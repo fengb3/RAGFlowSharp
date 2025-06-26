@@ -11,7 +11,7 @@ class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         // 构建配置
-        var configuration = new ConfigurationBuilder()
+        IConfiguration configuration = new ConfigurationBuilder()
             .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
             .AddEnvironmentVariables()
             .Build();
