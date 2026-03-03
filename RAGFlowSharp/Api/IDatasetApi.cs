@@ -61,7 +61,7 @@ namespace RAGFlowSharp.Api
         ITask<List.ResponseBody> ListDatasets(
             // ITask<HttpResponseMessage> ListDatasets(
             string? page = null,
-            string? pageSize = null,
+            [AliasAs("page_size")] string? pageSize = null,
             string? orderby = null,
             bool? desc = null,
             string? name = null,

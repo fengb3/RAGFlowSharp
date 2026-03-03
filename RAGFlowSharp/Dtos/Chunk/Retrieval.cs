@@ -32,6 +32,7 @@ namespace RAGFlowSharp.Dtos.Chunk
         {
             public string Content { get; set; } = string.Empty;
             public string? ContentLtks { get; set; }
+            public string DatasetId { get; set; } = string.Empty;
             public string DocumentId { get; set; } = string.Empty;
             public string? DocumentKeyword { get; set; }
             public string? Highlight { get; set; }
