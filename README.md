@@ -2,7 +2,7 @@
 
 [![NuGet Version](https://img.shields.io/nuget/v/RAGFlowSharp.svg?style=flat-square)](https://www.nuget.org/packages/RAGFlowSharp)
 
-RAGFlowSharp is a .NET-based RAG (Retrieval-Augmented Generation) workflow management library that provides a comprehensive set of APIs to manage various components in RAG applications.
+RAGFlowSharp is a .NET-based RAGflow operation library that provides a comprehensive set of APIs to manage various components in RAG applications.
 
 ## Key Features
 
