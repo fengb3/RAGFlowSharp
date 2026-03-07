@@ -3,6 +3,7 @@ using System.IO;
 using System.Net.Http;
 using System.Threading.Tasks;
 using RAGFlowSharp.Dtos.File;
+using WebApiClientCore;
 using WebApiClientCore.Attributes;
 
 namespace RAGFlowSharp.Api
@@ -66,7 +67,7 @@ namespace RAGFlowSharp.Api
         Task<List.ResponseBody> ListFilesAsync(
             [PathQuery] string datasetId,
             [PathQuery] int? page = null,
-            [PathQuery] int? pageSize = null,
+            [AliasAs("page_size")][PathQuery] int? pageSize = null,
             [PathQuery] string? orderBy = null,
             [PathQuery] bool? desc = null,
             [PathQuery] string? keywords = null,
